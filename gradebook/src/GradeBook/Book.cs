@@ -65,7 +65,7 @@ namespace GradeBook
             {
                 if (grades[index] <= 0)
                 {
-                    break;
+                    continue;
                 }
 
                 result.Low = Math.Min(grades[index], result.Low);
