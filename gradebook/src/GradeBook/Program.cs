@@ -8,19 +8,24 @@ namespace GradeBook
         static void Main(string[] args)
         {               
             var book = new Book("Franz' Grade Book");
-            book.AddGrade(89.1);
-            book.AddGrade(91.0);
-            book.AddGrade(90.0);
+            // book.AddGrade(89.1);
+            // book.AddGrade(91.0);
+            // book.AddGrade(90.0);
             
             // if((pressedKey.Modifiers & ConsoleModifiers.Control) != 0)
             // {
             //     Console.Write("CTL+\n");
             // }
 
+            Console.WriteLine($"Please enter all grades that want be added to your grade book...");
+
             var grade = 0.0;
-            while (pressedKey.Key != ConsoleKey.Escape)
+            var userInput = "";
+            while (Console.ReadKey().Key != ConsoleKey.Escape)
             {
-                grade = double.Parse(Console.ReadLine());
+                userInput = Console.ReadLine();
+                grade = double.Parse(userInput);
+                book.AddGrade(grade);
             }
 
             var stats = book.GetStatistics();         

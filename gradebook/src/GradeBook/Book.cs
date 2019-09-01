@@ -5,6 +5,8 @@ namespace GradeBook
 {
     public class Book
     {
+        private List<double> grades;
+        public string Name;
         public Book(string name)
         {
             grades = new List<double>();
@@ -97,9 +99,6 @@ namespace GradeBook
 
             return result;
         }
-
-        private List<double> grades;
-        public string Name;
     }
 }
 
