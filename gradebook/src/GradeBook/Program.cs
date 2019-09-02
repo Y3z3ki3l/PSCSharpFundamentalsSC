@@ -19,7 +19,7 @@ namespace GradeBook
 
             Console.WriteLine($"Please enter all grades that want be added to your grade book...");
 
-            var grade = 0.0;
+            var grade = 000.00;
             var userInput = "";
             while (Console.ReadKey().Key != ConsoleKey.Escape)
             {
