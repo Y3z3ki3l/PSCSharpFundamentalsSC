@@ -16,16 +16,35 @@ namespace GradeBook
             // {
             //     Console.Write("CTL+\n");
             // }
-
-            Console.WriteLine($"Please enter all grades that want be added to your grade book...");
-
-            var grade = 0.0;
-            var userInput = "";
-            while (Console.ReadKey().Key != ConsoleKey.Escape)
+            
+            while (true)
             {
-                userInput = Console.ReadLine();
-                grade = double.Parse(userInput);
-                book.AddGrade(grade);
+                Console.WriteLine($"Enter a grade or press 'q' to quit");
+                var userInput = Console.ReadLine();
+                
+                if (userInput == "q")
+                {
+                    break;
+                }
+
+                try
+                {
+                    var grade = double.Parse(userInput);
+                    book.AddGrade(grade);   
+                }
+                catch (ArgumentException ex)
+                {
+                    
+                    Console.WriteLine(ex.Message);
+                }
+                catch (FormatException ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+                finally
+                {
+                    Console.WriteLine("**");
+                }
             }
 
             var stats = book.GetStatistics();         
